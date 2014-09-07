@@ -1,0 +1,12 @@
+{
+  "name": "derrickwilliams.github.io",
+  "version": "0.0.0",
+  "homepage": "https://github.com/derrickwilliams/derrickwilliams.github.io",
+  "authors": [
+    "DerrickW <derrickawilliams@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "raphael": "~2.1.2"
+  }
+}

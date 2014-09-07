@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div class="main-container"></div>
+  <script src="./bower_components/raphael/raphael.js"></script>
+  <script>
+    var
+      paper,
+      circle,
+      canvas;
+
+    paper = Raphael(document.querySelector('.main-container'), 640, 400);
+    setBGColor(paper.canvas, '#efefef');
+
+    circle = paper.circle(320, 200, 50);
+    circle.attr('fill', '#f00');
+    circle.attr('stroke', '#fff');
+
+    // setTimeout(function() {
+    //   circle.animate({
+    //     cx: 10, cy: 10
+    //   }, 1000, 'linear', function() { console.log('done animating'); });
+    // }, 1000);
+    circle.drag(
+      dHandle, null, null,
+      circle, null, null
+      // dHandle.bind(circle, 'start'),
+      // dHandle.bind(circle, 'end')
+    );
+
+    function dHandle(dx, dy, x, y) {
+      var
+        currentX = this.attr('x'),
+        currentY = this.attr('y');
+
+      this.animate({
+        cx: x,
+        cy: y
+      }, 1);
+    }
+
+    function setBGColor(elem, color) {
+      if (elem.style === undefined || elem.style.backgroundColor === undefined) return;
+      elem.style.backgroundColor = color;
+    }
+  </script>
+</body>
+</html>
